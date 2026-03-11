@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Toy Memory</title>
+
+<style>
+
+body{
+  background:#f3f1ee;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:sans-serif;
+}
+
+button{
+  border:none;
+  background:none;
+  cursor:pointer;
+}
+
+button img{
+  width:300px;
+  transition:transform 0.2s;
+}
+
+button img:hover{
+  transform:scale(1.05);
+}
+
+.popup{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.3);
+  justify-content:center;
+  align-items:center;
+}
+
+.popup-content{
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  width:300px;
+  text-align:center;
+}
+
+</style>
+</head>
+
+<body>
+
+<button id="dogButton">
+  <img src="dog.svg">
+</button>
+
+<div class="popup" id="popup">
+
+  <div class="popup-content">
+
+    <img src="dog.svg" width="120">
+
+    <p>
+    This toy reminds me of childhood afternoons
+    when everything felt soft and slow.
+    </p>
+
+    <button onclick="closePopup()">close</button>
+
+  </div>
+
+</div>
+
+<script>
+
+const button = document.getElementById("dogButton")
+const popup = document.getElementById("popup")
+
+button.onclick = function(){
+  popup.style.display = "flex"
+}
+
+function closePopup(){
+  popup.style.display = "none"
+}
+
+</script>
+
+</body>
+</html>
