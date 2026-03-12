@@ -1,92 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Toy Memory</title>
-
-<style>
-
-body{
-  background:#f3f1ee;
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-family:sans-serif;
-}
-
-button{
-  border:none;
-  background:none;
-  cursor:pointer;
-}
-
-button img{
-  width:300px;
-  transition:transform 0.2s;
-}
-
-button img:hover{
-  transform:scale(1.05);
-}
-
-.popup{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.3);
-  justify-content:center;
-  align-items:center;
-}
-
-.popup-content{
-  background:white;
-  padding:30px;
-  border-radius:20px;
-  width:300px;
-  text-align:center;
-}
-
-</style>
+  <meta charset="UTF-8">
+  <title>Toy Garden</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fascinate&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-<button id="dogButton">
-  <img src="dog.svg">
-</button>
+  <h1>Toy Garden</h1>
 
-<div class="popup" id="popup">
+  <section class="toy-row">
 
-  <div class="popup-content">
+    <div class="toy-item">
+      <input type="checkbox" id="dog">
 
-    <img src="dog.svg" width="120">
+      <label for="dog" class="toy-button">
+        <img src="dog.svg" alt="dog toy">
+      </label>
 
-    <p>
-    This toy reminds me of childhood afternoons
-    when everything felt soft and slow.
-    </p>
+      <div class="memory">
+        <p>This toy reminds me of childhood afternoons.</p>
+      </div>
+    </div>
 
-    <button onclick="closePopup()">close</button>
+    <div class="toy-item">
+      <input type="checkbox" id="car">
 
-  </div>
+      <label for="car" class="toy-button">
+        <img src="car.svg" alt="car toy">
+      </label>
 
-</div>
+      <div class="memory">
+        <p>I used to push this car across the floor.</p>
+      </div>
+    </div>
 
-<script>
-
-const button = document.getElementById("dogButton")
-const popup = document.getElementById("popup")
-
-button.onclick = function(){
-  popup.style.display = "flex"
-}
-
-function closePopup(){
-  popup.style.display = "none"
-}
-
-</script>
+  </section>
 
 </body>
 </html>
