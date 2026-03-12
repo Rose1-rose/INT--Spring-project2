@@ -46,7 +46,7 @@ h1{
 .memory{
   display:none;
   position:absolute;
-  top:120%;
+  top:90%;
   left:50%;
   transform:translateX(-50%);
   width:220px;
