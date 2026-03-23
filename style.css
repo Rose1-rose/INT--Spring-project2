@@ -3,38 +3,39 @@ body{
   font-family:sans-serif;
   text-align:center;
   min-height:100vh;
-
   background:
     radial-gradient(circle at 50% 120%, #d4f7c5 0%, #c3efb0 40%, transparent 70%),
     radial-gradient(circle at 10% 20%, rgba(255,255,255,0.35) 0, transparent 200px),
     radial-gradient(circle at 85% 30%, rgba(255,255,255,0.25) 0, transparent 220px),
     #e6ffd7;
+
+   cursor: url("./cursor.png") 0 0, auto;
 }
 
 h1{
-  margin-top:40px;
-  margin-bottom:30px;
+  margin-top:36px;
+  margin-bottom:12px;
   font-family:"Fascinate", system-ui;
-  font-size:60px;
-  color:#ff9bdb;
-  letter-spacing:1px;
+  font-size:72px;
+  color:#7c6f91;
+  letter-spacing:2px;
 }
 
 .toy-row{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  align-items:flex-start;
-  gap:60px 40px;
-  padding:20px 40px 120px;
-  max-width:1400px;
+  display:grid;
+  grid-template-columns:repeat(5, 1fr);
+  gap:100px 40px;
+  max-width:1200px;
   margin:0 auto;
+  padding:20px 40px 140px;
+  justify-items:center;
+  align-items:end;
 }
 
 .toy-item{
   position:relative;
-  width:180px;
-  min-height:190px;
+  width:170px;
+  min-height:170px;
   transition:opacity 0.25s ease, transform 0.25s ease;
 }
 
@@ -44,11 +45,11 @@ h1{
 
 .toy-button{
   display:block;
-  cursor:pointer;
+  cursor: url("cursor.png") 8 8, pointer;
 }
 
 .toy-button img{
-  width:140px;
+  width:130px;
   display:block;
   margin:0 auto;
   transition:transform 0.22s ease, filter 0.22s ease;
@@ -58,6 +59,39 @@ h1{
 .toy-button:hover img{
   transform:translateY(-6px) scale(1.06) rotate(-2deg);
   filter:drop-shadow(0 14px 16px rgba(0,0,0,0.16));
+}
+
+/* 轻微错落 */
+.toy-item:nth-child(2),
+.toy-item:nth-child(7),
+.toy-item:nth-child(12),
+.toy-item:nth-child(17),
+.toy-item:nth-child(22){
+  transform:translateY(15px);
+}
+
+.toy-item:nth-child(4),
+.toy-item:nth-child(9),
+.toy-item:nth-child(14),
+.toy-item:nth-child(19),
+.toy-item:nth-child(24){
+  transform:translateY(-12px);
+}
+
+.toy-item:nth-child(3),
+.toy-item:nth-child(8),
+.toy-item:nth-child(13),
+.toy-item:nth-child(18),
+.toy-item:nth-child(23){
+  transform:translateX(10px);
+}
+
+.toy-item:nth-child(5),
+.toy-item:nth-child(10),
+.toy-item:nth-child(15),
+.toy-item:nth-child(20),
+.toy-item:nth-child(25){
+  transform:translateX(-10px);
 }
 
 .memory{
@@ -76,7 +110,7 @@ h1{
   -webkit-backdrop-filter:blur(8px);
   transition:all 0.28s ease;
   pointer-events:none;
-  z-index:10;
+  z-index:20;
 }
 
 .memory p{
@@ -100,13 +134,11 @@ h1{
   border-top:1px solid rgba(255,255,255,0.8);
 }
 
-/* 点击后 memory 浮起来 */
 .toy-item input:checked + .toy-button + .memory{
   opacity:1;
   transform:translateX(-50%) translateY(0) scale(1);
 }
 
-/* 点击后 toy 弹一下 + 放大 */
 .toy-item input:checked + .toy-button img{
   transform:scale(1.14) rotate(-3deg);
   animation:pop 0.35s ease;
@@ -125,7 +157,6 @@ h1{
   }
 }
 
-/* 点开一个时，其他玩具稍微变淡 */
 .toy-row:has(input:checked) .toy-item{
   opacity:0.42;
 }
@@ -134,7 +165,6 @@ h1{
   opacity:1;
 }
 
-/* 当前选中的那个再微微抬起来一点 */
 .toy-item:has(input:checked){
-  transform:translateY(-4px);
+  transform:translateY(-6px);
 }
