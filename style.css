@@ -3,22 +3,50 @@ body{
   font-family:sans-serif;
   text-align:center;
   min-height:100vh;
+  cursor: url('/cursor.png'), auto;
+;
+
   background:
     radial-gradient(circle at 50% 120%, #d4f7c5 0%, #c3efb0 40%, transparent 70%),
     radial-gradient(circle at 10% 20%, rgba(255,255,255,0.35) 0, transparent 200px),
     radial-gradient(circle at 85% 30%, rgba(255,255,255,0.25) 0, transparent 220px),
     #e6ffd7;
-
-   cursor: url("./cursor.png") 0 0, auto;
 }
+
 
 h1{
   margin-top:36px;
   margin-bottom:12px;
   font-family:"Fascinate", system-ui;
-  font-size:72px;
+  font: size 150px;
   color:#7c6f91;
   letter-spacing:2px;
+}
+.hero{
+  margin-top: 40px;
+  margin-bottom: 40px;
+  text-align: center;
+  padding: 24px 20px;
+}
+
+.hero h1{
+  margin: 0;
+  font-family: "Fascinate", system-ui;
+  font-size: 150px;
+  color: #9587b7;
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+}
+
+.intro{
+  margin-top: 30px;
+  font-size: 25px;
+  line-height: 1.6;
+  color: #8ea189;
+  font-family: "Fascinate", system-ui;
+  font-weight: 300;
+
+  letter-spacing: 0.05em;  
 }
 
 .toy-row{
@@ -27,7 +55,7 @@ h1{
   gap:100px 40px;
   max-width:1200px;
   margin:0 auto;
-  padding:20px 40px 140px;
+  padding:10px 40px 140px;
   justify-items:center;
   align-items:end;
 }
@@ -43,13 +71,9 @@ h1{
   display:none;
 }
 
-.toy-button{
-  display:block;
-  cursor: url("cursor.png") 8 8, pointer;
-}
 
 .toy-button img{
-  width:130px;
+  width:170px;
   display:block;
   margin:0 auto;
   transition:transform 0.22s ease, filter 0.22s ease;
@@ -61,7 +85,6 @@ h1{
   filter:drop-shadow(0 14px 16px rgba(0,0,0,0.16));
 }
 
-/* 轻微错落 */
 .toy-item:nth-child(2),
 .toy-item:nth-child(7),
 .toy-item:nth-child(12),
