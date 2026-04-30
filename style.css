@@ -7,24 +7,47 @@ body{
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   min-height: 100vh;
-  background:
-    radial-gradient(circle at 50% 115%, #d4f7c5 0%, #c3efb0 42%, transparent 72%),
-    radial-gradient(circle at 12% 22%, rgba(255,255,255,0.38) 0, transparent 230px),
-    radial-gradient(circle at 86% 30%, rgba(255,255,255,0.28) 0, transparent 260px),
-    linear-gradient(180deg, #eaffdf 0%, #dfffd2 100%);
   overflow-x: hidden;
-}
 
-/* =====================
-   HERO / TITLE
-===================== */
+  background:
+    /* title area very soft light */
+    radial-gradient(
+      ellipse at 50% 25%,
+      rgba(255, 250, 220, 0.28) 0%,
+      rgba(255, 250, 220, 0.18) 20%,
+      transparent 52%
+    ),
+
+    /* bottom garden shadow */
+    radial-gradient(
+      ellipse at 50% 82%,
+      rgba(190, 230, 160, 0.38) 0%,
+      rgba(190, 230, 160, 0.18) 34%,
+      transparent 66%
+    ),
+
+    /* clean green base */
+    linear-gradient(
+      180deg,
+      #f1fde9 0%,
+      #e6f7d9 45%,
+      #d8efc8 100%
+    );
+}
 
 .hero{
   margin-top: 52px;
   margin-bottom: 78px;
   text-align: center;
-  padding: 24px 20px 10px;
+  padding: 24px 20px 24px;
   position: relative;
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(255,255,255,0.16) 0%,
+      rgba(255,255,255,0.08) 38%,
+      transparent 72%
+    );
 }
 
 .hero h1{
@@ -44,24 +67,20 @@ body{
 
 .intro{
   display: block;
-  width: max-content;
-  max-width: 90vw;
-  margin: 34px auto 0;
+  width: min(720px, 86vw);
+  margin: 40px auto 0;
   text-align: center;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 1.5;
   color: #7e8676;
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: 500;
-  letter-spacing: 0.01em;
+  font-weight: 400;
+  letter-spacing: 0.03em;
   position: relative;
   z-index: 5;
+  opacity: 0.95;
 }
 
-/* =====================
-   SOFT CSS FLOWERS
-   only behind title
-===================== */
 
 .hero::before,
 .hero::after{
@@ -71,15 +90,14 @@ body{
   pointer-events: none;
   opacity: 0.92;
   filter: drop-shadow(0 10px 18px rgba(134, 120, 120, 0.14));
+  transform-origin: center center;
 }
 
-/* left flower behind "Toy" - pink */
 .hero::before{
   width: 140px;
   height: 140px;
-  left: 14%;
-  top: 16px;
-  transform: rotate(-16deg);
+  left: 16%;
+  top: 30px;
 
   background:
     radial-gradient(circle at 50% 20%, #f3d8e3 0 19px, transparent 20px),
@@ -88,15 +106,16 @@ body{
     radial-gradient(circle at 32% 74%, #e9bfd1 0 19px, transparent 20px),
     radial-gradient(circle at 22% 38%, #f3d8e3 0 19px, transparent 20px),
     radial-gradient(circle at 50% 50%, #f0df79 0 9px, #dfc24f 10px 13px, transparent 14px);
+
+  animation: flowerSpinLeft 22s linear infinite;
 }
 
-/* right flower behind "Garden" - blue */
+
 .hero::after{
-  width: 136px;
-  height: 136px;
-  right: 14%;
-  top: 20px;
-  transform: rotate(15deg);
+  width: 115px;
+  height: 115px;
+  right: 17%;
+  top: 64px;
 
   background:
     radial-gradient(circle at 50% 20%, #d8ebf6 0 18px, transparent 19px),
@@ -105,11 +124,30 @@ body{
     radial-gradient(circle at 32% 74%, #bdd9ea 0 18px, transparent 19px),
     radial-gradient(circle at 22% 38%, #d8ebf6 0 18px, transparent 19px),
     radial-gradient(circle at 50% 50%, #f0df79 0 9px, #dfc24f 10px 13px, transparent 14px);
+
+  animation: flowerSpinRight 24s linear infinite;
 }
 
-/* =====================
-   TOY GRID
-===================== */
+@keyframes flowerSpinLeft{
+  from{
+    transform: rotate(-16deg);
+  }
+
+  to{
+    transform: rotate(344deg);
+  }
+}
+
+@keyframes flowerSpinRight{
+  from{
+    transform: rotate(15deg);
+  }
+
+  to{
+    transform: rotate(375deg);
+  }
+}
+
 
 .toy-row{
   display: grid;
@@ -192,6 +230,11 @@ body{
   transform: translateY(-16px);
 }
 
+/* block toy: slightly lower than the others */
+.toy-item:nth-child(9){
+  transform: translateY(4px);
+}
+
 .toy-item:nth-child(3),
 .toy-item:nth-child(8),
 .toy-item:nth-child(13),
@@ -208,9 +251,12 @@ body{
   transform: translateX(-14px);
 }
 
-/* =====================
-   MEMORY CARD
-===================== */
+/* only move the robot up */
+.toy-item:nth-child(10){
+  transform: translateX(-14px) translateY(-25px);
+}
+
+
 
 .memory{
   opacity: 0;
@@ -278,9 +324,6 @@ body{
   }
 }
 
-/* =====================
-   RESPONSIVE
-===================== */
 
 @media (max-width: 1000px){
   .hero{
@@ -300,15 +343,15 @@ body{
   .hero::before{
     width: 96px;
     height: 96px;
-    left: 8%;
-    top: 20px;
+    left: 7%;
+    top: 36px;
   }
 
   .hero::after{
     width: 92px;
     height: 92px;
-    right: 8%;
-    top: 22px;
+    right: 7%;
+    top: 38px;
   }
 
   .toy-row{
@@ -347,14 +390,14 @@ body{
     width: 64px;
     height: 64px;
     left: 2%;
-    top: 26px;
+    top: 32px;
   }
 
   .hero::after{
     width: 62px;
     height: 62px;
     right: 2%;
-    top: 26px;
+    top: 34px;
   }
 
   .toy-row{
@@ -375,4 +418,13 @@ body{
   .memory{
     width: 185px;
   }
+}
+.toy-item:nth-child(1) .toy-button img,
+.toy-item:nth-child(2) .toy-button img{
+  transform: scale(1.18);
+}
+
+.toy-item:nth-child(1) .toy-button:hover img,
+.toy-item:nth-child(2) .toy-button:hover img{
+  transform: scale(1.28) rotate(-2deg);
 }
