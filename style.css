@@ -96,7 +96,7 @@ body{
 .hero::before{
   width: 140px;
   height: 140px;
-  left: 16%;
+  left: 14%;
   top: 30px;
 
   background:
@@ -114,7 +114,7 @@ body{
 .hero::after{
   width: 115px;
   height: 115px;
-  right: 17%;
+  right: 15%;
   top: 64px;
 
   background:
